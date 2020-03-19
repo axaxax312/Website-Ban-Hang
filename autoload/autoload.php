@@ -14,7 +14,7 @@
      * danh sách danh mục
      */
     $danhmuc = $db->fetchAll('danhmuc');
-     define("ROOT", $_SERVER['DOCUMENT_ROOT'] ."/webbangiay/public/uploads/");
+     define("ROOT", $_SERVER['DOCUMENT_ROOT'] ."/public/uploads/");
     /**
      * sắp xếp
      * @var integer

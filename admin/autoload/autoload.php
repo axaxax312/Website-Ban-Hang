@@ -26,7 +26,7 @@
     }
     $leveladmin  =  $_SESSION['admin_level'];
     $middleware = new Middeware($active, $leveladmin);
-    define("ROOT", $_SERVER['DOCUMENT_ROOT'] ."/webbangiay/public/uploads/");
+    define("ROOT", $_SERVER['DOCUMENT_ROOT'] ."/public/uploads/");
 
      
      /**
