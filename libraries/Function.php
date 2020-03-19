@@ -83,7 +83,7 @@
 
     function base_url()
     {
-        return $url  = "http://webbangiay.abc/";
+        return $url  = "http://webbangiay.phupt.net/";
         // return 'http://'.$_SERVER["SERVER_NAME"].'/';
     }
 
