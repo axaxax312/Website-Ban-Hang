@@ -59,6 +59,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoload/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/autoload/autoload.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libraries/Function.php" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/Function.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/note.txt" beforeDir="false" afterPath="$PROJECT_DIR$/note.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../webdadung" beforeDir="false" afterPath="$PROJECT_DIR$/../webdadung" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../webmaytinh" beforeDir="false" afterPath="$PROJECT_DIR$/../webmaytinh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../webtoc" beforeDir="false" afterPath="$PROJECT_DIR$/../webtoc" afterDir="false" />
@@ -121,7 +122,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1555818781834</updated>
-      <workItem from="1584621364334" duration="449000" />
+      <workItem from="1584621364334" duration="664000" />
     </task>
     <servers />
   </component>
