@@ -24,10 +24,10 @@
 				</style>
                 <section style="padding: 20px">
                     <ul>
-                        <li class="contact">  <strong>Cửa hàng </strong> Đồ án tốt nghiệp </li>
-                        <li class="contact">  <strong>Địa chỉ </strong> : Tây Mỗ - Hà Nội </li>
-                        <li class="contact">  <strong>SDT </strong> : 12121212 </li>
-                        <li class="contact">  <strong>Email </strong>: admin@gmail.com </li>
+                        <li class="contact">  <strong>Cửa hàng </strong> Fashion shoes shop </li>
+                        <li class="contact">  <strong>Địa chỉ </strong> : Số 22 Duy Tân - Huế </li>
+                        <li class="contact">  <strong>SDT </strong> : 0905338349 </li>
+                        <li class="contact">  <strong>Email </strong>: trankimanh150613@gmail.com </li>
                         
                     </ul>
                </section>

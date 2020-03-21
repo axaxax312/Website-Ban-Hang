@@ -130,7 +130,10 @@
                                         <li  class="<?php echo isset($active) && $active == 'producer' ? 'active' : ''  ?>">
                                             <a href="<?php echo modules('producer') ?>"><i class="fa fa-building"></i>Nhà cup cấp</a>
                                         </li>
-
+                                        <li class="<?php echo isset($active) && $active == 'menu' ? 'active' : ''  ?>">
+                                            <a href="<?php echo modules('menu') ?>">
+                                                <i class="icon-pencil"></i> Menu tin tức </a>
+                                        </li>
                                         <li class="<?php echo isset($active) && $active == 'post' ? 'active' : ''  ?>">
                                             <a href="<?php echo modules('post') ?>">
                                             <i class="icon-pencil"></i> Tin tức </a>

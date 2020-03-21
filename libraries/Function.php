@@ -83,8 +83,8 @@
 
     function base_url()
     {
-        return $url  = "http://webbangiay.phupt.net/";
-        // return 'http://'.$_SERVER["SERVER_NAME"].'/';
+//        return $url  = "http://webbangiay.phupt.net/";
+         return 'http://'.$_SERVER["SERVER_NAME"].'/';
     }
 
     function base_admin()

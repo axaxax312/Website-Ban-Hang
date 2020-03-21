@@ -7,11 +7,13 @@
 
     $open = "dm";
     $active = "post";
+    $menus = $db->fetchAll('menu');
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
 
         $tieude         = postInput("tieude");
         $noidung        = postInput("noidung");
+        $menu        = postInput("menu_id");
 
         if ($tieude == '')
         {
@@ -35,7 +37,8 @@
             $data = [
                 'tieude'     => $tieude,
                 'slug'       => to_slug($tieude),
-                'noidung'    => $noidung
+                'noidung'    => $noidung,
+				'menu_id'    => $menu
             ];
 
             /**
@@ -126,7 +129,17 @@
                                     </label>
                                     <div class="col-md-10">
                                         <input type="text" name="tieude" class="form-control col-md-7 col-xs-12" value="">
-                                       
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="first-name"> Menu <span class="required">(*)</span>
+                                    </label>
+                                    <div class="col-md-10">
+                                        <select name="menu_id" class="form-control" id="">
+                                            <?php foreach ($menus as $item) :?>
+                                                <option value="<?= $item['id'] ?>"><?= $item['tenmenu'] ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
                                 </div>
                                 

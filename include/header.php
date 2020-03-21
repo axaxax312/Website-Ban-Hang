@@ -78,7 +78,7 @@
                         </div>
                         <div class="col-md-4">
                             <a href="<?php echo base_url() ?>">
-                                <img src="<?php echo base_url() ?>public/frontend/images/logo-default.png">
+                               <span style="font-size: 27px;color: red;font-weight: bold;">Fashion shoes shop</span>
                             </a>
                         </div>
                         <div class="col-md-3" id="header-right">
@@ -108,12 +108,21 @@
                         </div>
                         <!--menu main-->
                         <ul id="menu-main">
-                            <?php foreach($menu as $item) :?>
-                                <li class="">
-                                    <a href="<?php echo $item['slug'] ?>" class="<?php echo isset($navactive) && $navactive == $item['slug'] ? 'navactive' : '' ?>"><?php echo $item['tenmenu'] ?></a>
-                                </li>
-                            <?php endforeach ; ?>
-                           
+                            <li>
+                                <a href="<?php echo base_url() ?>/gioi-thieu.php">Giới thiệu</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>/dia-chi.php">Địa chỉ</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>/tin-tuc.php">Tin tức</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>/danh-gia-website.php">Đánh giá</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>/lien-he.php">Liên hệ</a>
+                            </li>
                         </ul>
                         <!-- end menu main-->
 

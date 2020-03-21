@@ -37,8 +37,6 @@
         $sotrang =  $productList['page'];
         unset($productList['page']); 
     }
-    
-
 ?>  
 
 <?php 

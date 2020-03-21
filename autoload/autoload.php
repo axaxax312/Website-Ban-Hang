@@ -8,6 +8,9 @@
     require_once __DIR__ . "/../libraries/Database.php";
     require_once __DIR__ . "/../libraries/Function.php";
     require_once __DIR__ . "/../libraries/Paginate.php";
+    require_once __DIR__ . "/../libraries/Url.php";
+    require_once __DIR__ . "/../libraries/Input.php";
+    require_once __DIR__ . "/../config.php";
 
     $db = new Database();
     /**

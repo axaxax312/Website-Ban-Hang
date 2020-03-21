@@ -3,9 +3,12 @@
     /**
      * gọi file autoload
      */
-    require_once __DIR__ . "/autoload/autoload.php";
 
+use libraries\Url\Input;
 
+require_once __DIR__ . "/autoload/autoload.php";
+
+    $showPrice = 'true';
     $path = $_SERVER['SCRIPT_NAME'];
 
     if (isset($_GET['id']) && $_GET['id']  != '')
@@ -40,6 +43,28 @@
     $sqldanhmuc = " SELECT sanpham.*, danhmuc.tendanhmuc as danhmuc FROM sanpham 
         LEFT JOIN danhmuc ON danhmuc.id = sanpham.danhmuc_id
         WHERE 1 AND danhmuc_id = $id";
+
+    if( Input::get('price'))
+    {
+        $key = Input::get('price');
+        if(array_key_exists($key,$arrayPrice))
+        {
+
+            if(count($arrayPrice[$key]) == 2)
+            {
+                $sqldanhmuc .= ' AND gia BETWEEN ' .$arrayPrice[$key][0] . ' AND ' . $arrayPrice[$key][1] . ' ';
+            }else
+            {
+                $sqldanhmuc .= ' AND gia > ' .$arrayPrice[$key][0] . ' ';
+            }
+        }else
+        {
+            $sqldanhmuc .= ' AND gia <=  1000000';
+        }
+
+
+        $filter['price'] = $key;
+    }
 
     $sanpham = $db->fetchJone('sanpham',$sqldanhmuc,$page = $p,12,true);
     if(count($sanpham) == 0)

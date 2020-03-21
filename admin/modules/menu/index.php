@@ -78,8 +78,7 @@
                                 <tr>
                                     <th> #</th>
                                     <th> Tên </th>
-                                    <th> Đường dẫn file </th>
-                                    <th> Vị trí  </th>
+                                    <th> Slug </th>
                                     <th class="text-center" style="width: 20%"> Thao Tác </th>
                                 </tr>
                             </thead>
@@ -89,7 +88,6 @@
                                    <td><input type="checkbox" name="" ></td>
                                    <td><?php echo $item['tenmenu'] ?></td>
                                    <td><?php echo $item['slug'] ?></td>
-                                   <td> <?php echo $item['vitri'] ?></td>
                                    <td class="text-center">
                                        
                                         <a href="edit.php?id=<?php echo $item['id'] ?>" class="btn default btn-xs green"><i class="fa fa-edit"></i> Sửa</a>

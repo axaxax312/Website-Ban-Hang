@@ -34,27 +34,17 @@
         $error = [];
 
         $tenmenu = postInput("tenmenu");
-        $vitri   = postInput("vitri");
-
 
         if ($tenmenu == '')
         {
             $error['tenmenu'] = " Tên menu không được để trống !";
         }
 
-        if ($vitri == '')
-        {
-            $error['vitri'] = " Vị trí không được để trống !";
-        }
-
-        
-
         if( empty($error))
         {
             $data = [
                 'tenmenu' => $tenmenu,
-                'vitri'   => $vitri
-              
+				'slug'    => $slug
             ];
 
             $id_update = $db->update("menu" , $data,array("id" => $id));   
@@ -111,24 +101,9 @@
                                         <input type="text" name="tenmenu" class="form-control col-md-7 col-xs-12" value="<?php echo isset($menu) ? $menu['tenmenu'] : '' ?>">
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-md-offset-2" for="first-name"> Vị trí <span class="required">(*)</span>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <input type="number" name="vitri" min="0" class="form-control col-md-7 col-xs-12" value="<?php echo isset($menu) ? $menu['vitri'] : '0' ?>">
-                                    </div>
-                                </div>
-
-                            
-
-                              
                             </div>
-
                             <div class="clearfix"></div>
                             <div class="ln_solid"></div>
-                           
-                      
                         </div>
                         <div class="form-actions right">
                             <button type="submit" class="btn green">Lưu</button>

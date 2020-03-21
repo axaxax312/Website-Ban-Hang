@@ -19,14 +19,16 @@
     /**
      *  lấy danh sách sản phẩm
      */
-    $sql = " SELECT * FROM tintuc WHERE 1 ORDER BY id DESC";
+    $sql = " SELECT tintuc.*, menu.tenmenu as tenmenu FROM tintuc
+     LEFT JOIN menu ON menu.id = tintuc.menu_id
+     WHERE 1 ORDER BY id DESC";
+
     $tintuc = $db->fetchJone("tintuc",$sql,$page = $p,6,true);
     if(isset($tintuc['page']))
     {
         $sotrang =  $tintuc['page'];
         unset($tintuc['page']); 
     }
-   
 ?>  
     <?php  require_once __DIR__ . "/include/header.php"; ?>
     
@@ -52,7 +54,9 @@
                                          <a href="tin-tuc-chi-tiet.php?id=<?php echo $item['id'] ?>-<?php echo $item['slug'] ?>"><?php echo $item['tieude'] ?></a>
                                     </p >
                                     <p style="padding-top: 10px;padding-bottom: 10px; line-height: 30px;font-size: 13px;"><?php echo substr($item['noidung'] , 0 ,401)."....." ?></p>
-                                   
+									<?php if ($item['tenmenu']) :?>
+                                        <a href="#" class="btn btn-primary" style="display: inline-block;padding: 5px 10px;border-radius: 10px;margin-top: 10px;"><?= $item['tenmenu'] ?></a>
+									<?php endif ;?>
                                 </div>
                             </a>
                         </div>
