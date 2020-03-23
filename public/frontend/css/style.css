@@ -187,6 +187,7 @@ h1,h2,h3,h4,h5,h6
 #menu-main > li 
 {
     float: left;
+    position: relative;
 }
 #menu-main > li > a,.home  a
 {
@@ -244,6 +245,27 @@ h1,h2,h3,h4,h5,h6
     width: 23%;
     margin-right: 2%;
     padding: 0px;
+}
+.sub-menu {
+    position: absolute;
+    top: 100%;
+    width: 150px;
+    background: white;
+    z-index: 1;
+    display: none;
+}
+.sub-menu li {
+    display: block;
+    padding: 10px;
+}
+.sub-menu li:hover a{
+    color: #ea3a3c;
+}
+.sub-menu li a {
+    font-size: 14px;
+}
+#menu-main > li:hover ul {
+    display: block;
 }
 
 /* =================MAIN CONTENT ================= */

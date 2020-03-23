@@ -17,6 +17,7 @@
      * danh sách danh mục
      */
     $danhmuc = $db->fetchAll('danhmuc');
+    $g_menus = $db->fetchAll('menu');
      define("ROOT", $_SERVER['DOCUMENT_ROOT'] ."/public/uploads/");
     /**
      * sắp xếp

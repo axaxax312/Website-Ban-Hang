@@ -116,6 +116,11 @@
                             </li>
                             <li>
                                 <a href="<?php echo base_url() ?>/tin-tuc.php">Tin tức</a>
+                                <ul class="sub-menu">
+                                    <?php foreach($g_menus as $mn) :?>
+                                        <li><a href="<?php echo base_url() ?>/menu.php?id=<?= $mn['id'] ?>"><?= $mn['tenmenu'] ?></a></li>
+                                    <?php endforeach ;?>
+                                </ul>
                             </li>
                             <li>
                                 <a href="<?php echo base_url() ?>/danh-gia-website.php">Đánh giá</a>
