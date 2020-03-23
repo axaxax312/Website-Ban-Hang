@@ -63,7 +63,7 @@ $sanpham = $db->fetchID('sanpham', $id);
 				<div class="col-md-6 bor" style="margin-top: 20px;padding: 30px;">
 					<ul id="right">
 						<li><h3> <?php echo $sanpham['tensanpham']; ?> </h3></li>
-						<li><p> Khuyến mãi nếu có mà éo có thì thôi </p></li>
+<!--						<li><p> Khuyến mãi nếu có </p></li>-->
 						<select class="form-control" name="size">
 							<option value=""> -- Size sản phẩm --</option>
 							<option value="1">35</option>
