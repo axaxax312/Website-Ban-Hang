@@ -43,8 +43,7 @@
         if( empty($error))
         {
             $data = [
-                'tenmenu' => $tenmenu,
-				'slug'    => $slug
+                'tenmenu' => $tenmenu
             ];
 
             $id_update = $db->update("menu" , $data,array("id" => $id));   

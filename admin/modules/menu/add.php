@@ -22,15 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$error['tenmenu'] = " Tên menu không được để trống !";
 	}
 
-	if ($slug == '') {
-		$error['slug'] = " Tên đường dẫn  không được để trống !";
-	}
 
 
 	if (empty($error)) {
 		$data = [
-			'tenmenu' => $tenmenu,
-			'slug'    => $slug
+			'tenmenu' => $tenmenu
 		];
 
 		$id_insert = $db->insert("menu", $data);
