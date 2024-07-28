@@ -3,7 +3,7 @@
      <!-- BEGIN FOOTER -->
                 <div class="page-footer">
                     <div class="page-footer-inner">
-                        2017 &copy; Đồ án tốt nghiệp 
+                        2022 &copy;
                     </div>
                     <div class="scroll-to-top">
                         <i class="icon-arrow-up"></i>

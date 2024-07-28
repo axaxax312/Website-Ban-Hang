@@ -24,7 +24,7 @@
                     <div class="container">
                         <div class="row clearfix">
                             <div class="col-md-6" id="header-text">
-                                <a>Đồ án tốt nghiệp</a><b> Xây dựng website bán hàng </b>
+
                             </div>
                             <div class="col-md-6">
                                 <nav id="header-nav-top">
@@ -78,7 +78,7 @@
                         </div>
                         <div class="col-md-4">
                             <a href="<?php echo base_url() ?>">
-                               <span style="font-size: 27px;color: red;font-weight: bold;">Fashion shoes shop</span>
+                               <span style="font-size: 27px;color: red;font-weight: bold;">Website bán giày Minh Hiếu</span>
                             </a>
                         </div>
                         <div class="col-md-3" id="header-right">
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="pull-right">
                                     <p id="hotline">HOTLINE</p>
-                                    <p>0986.420.994</p>
+<!--                                    <p>0986.420.994</p>-->
                                 </div>
                                 
                             </div>
@@ -142,4 +142,3 @@
                 </div>
             </div>
             <!--ENDMENUNAV-->
-            

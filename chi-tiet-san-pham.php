@@ -64,7 +64,7 @@ $sanpham = $db->fetchID('sanpham', $id);
 					<ul id="right">
 						<li><h3> <?php echo $sanpham['tensanpham']; ?> </h3></li>
 <!--						<li><p> Khuyến mãi nếu có </p></li>-->
-						<select class="form-control" name="size">
+						<select class="form-control" id="sizeSelect" name="size">
 							<option value=""> -- Size sản phẩm --</option>
 							<option value="1">35</option>
 							<option value="2">36</option>

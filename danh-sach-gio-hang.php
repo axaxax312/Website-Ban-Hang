@@ -9,6 +9,13 @@
         echo " <script>alert('  Chưa có sản phẩm trong giỏ hàng   !'); location.href='index.php';</script>";
     }
     $sum = 0;
+
+    if (isset($_GET['transactionID']) && $_GET['transactionID']) {
+        $sqlUpdate = "UPDATE donhang SET loai = 2 WHERE id =  " . $_GET['transactionID'];
+        $db->fetchsql($sqlUpdate);
+        unset($_SESSION["cart"]);
+        header("location: http://banhoa.local/index.php?page_layout=notify");
+    }
   
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
@@ -45,6 +52,75 @@
                 
             }
 
+            $vnp_TmnCode    = "6SKKB23E"; //Mã website tại VNPAY
+            $vnp_HashSecret = "AP7F7G16IL4AOPKG4E934PK43ZUWU26I"; //Chuỗi bí mật
+//            $vnp_HashSecret = "OTWKYZFSMGNNOLETTQWFVMAMLERJUETM"; //Chuỗi bí mật
+            $vnp_Url = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+
+            $vnp_Returnurl = "http://localhost:8000/danh-sach-gio-hang.php?pay=online&transactionID=$id_instart";
+            if ($_POST['pay'] == 'online') {
+
+                // Sau khi xử lý xong bắt đầu xử lý online
+                error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+
+                // tham so dau vao
+                $inputData = array(
+                    "vnp_Version"    => "2.0.0",
+                    "vnp_TmnCode"    => $vnp_TmnCode,
+                    "vnp_Amount"     => $_SESSION['sums'], // so tien thanh toan,
+                    "vnp_Command"    => "pay",
+                    "vnp_CreateDate" => date('YmdHis'),
+                    "vnp_CurrCode"   => "VND",
+                    "vnp_IpAddr"     => $_SERVER['REMOTE_ADDR'], // IP
+                    "vnp_Locale"     => 'vi', // ngon ngu,
+                    "vnp_OrderInfo"  => 'Nội dung thanh toán', // noi dung thanh toan,
+                    "vnp_OrderType"  => 'fashion',    // loai hinh thanh toan
+                    "vnp_ReturnUrl"  => $vnp_Returnurl,   // duong dan tra ve
+                    "vnp_TxnRef"     => $id_instart, // ma don hang,
+                );
+
+                $inputData['vnp_BankCode'] = 'NCB';
+                ksort($inputData);
+                $query    = "";
+                $i        = 0;
+                $hashdata = "";
+                foreach ($inputData as $key => $value) {
+                    if ($i == 1) {
+                        $hashdata .= '&' . $key . "=" . $value;
+                    } else {
+                        $hashdata .= $key . "=" . $value;
+                        $i        = 1;
+                    }
+                    $query .= urlencode($key) . "=" . urlencode($value) . '&';
+                }
+
+
+                $vnp_Url = $vnp_Url . "?" . $query;
+                if ($vnp_HashSecret) {
+                    $vnpSecureHash = hash('sha256', $vnp_HashSecret . $hashdata);
+                    $vnp_Url       .= 'vnp_SecureHashType=SHA256&vnp_SecureHash=' . $vnpSecureHash;
+                }
+
+
+                $returnData = array(
+                    'code'    => '00',
+                    'message' => 'success',
+                    'data'    => $vnp_Url
+                );
+
+                header("location: " . $returnData['data']);
+//                header("location: index.php?page_layout=product");
+
+//                Ngân hàng: NCB
+//                Số thẻ: 9704198526191432198
+//                Tên chủ thẻ:NGUYEN VAN A
+//                Ngày phát hành:07/15
+//                Mật khẩu OTP:123456
+
+                // HUong dan
+                //https://sandbox.vnpayment.vn/apis/docs/huong-dan-tich-hop/
+            }
+
             unset($_SESSION['cart']);
             unset($_SESSION['tongtien']);
             unset($_SESSION['sums']);
@@ -53,7 +129,6 @@
 
         }  
     }
-    // session_destroy();
    
 ?>  
     <?php  require_once __DIR__ . "/include/header.php"; ?>
@@ -88,6 +163,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+
                                 <?php $stt = 1 ;foreach($_SESSION['cart'] as $key => $val ): ?>
                                 <tr>
                                     <td><?php echo $stt; ?></td>
@@ -97,14 +173,13 @@
                                         <img src="<?php echo base_url() ?>public/uploads/product/<?php echo $val['hinhanh'] ?>" class="" with="30px" height="30px">
                                     </td>
                                     <td>
-                                        
-                                         <select class="form-control" name="size" readonly="readonly">
-                                            <option value="1" <?php echo $val['size'] == 1 ? "selcted = 'selected'" : '' ?>>35</option>
-                                            <option value="2" <?php echo $val['size'] == 2 ? "selcted = 'selected'" : '' ?>>36</option>
-                                            <option value="3" <?php echo $val['size'] == 3 ? "selcted = 'selected'" : '' ?>>37</option>
-                                            <option value="4" <?php echo $val['size'] == 4 ? "selcted = 'selected'" : '' ?>>38</option>
-                                            <option value="5" <?php echo $val['size'] == 5 ? "selcted = 'selected'" : '' ?>>39</option>
-                                            <option value="6" <?php echo $val['size'] == 6 ? "selcted = 'selected'" : '' ?>>40</option>
+                                         <select class="form-control selected-size" name="size">
+                                            <option value="1" <?php echo $val['size'] == 1 ? "selected" : '' ?>>35</option>
+                                            <option value="2" <?php echo $val['size'] == 2 ? "selected" : '' ?>>36</option>
+                                            <option value="3" <?php echo $val['size'] == 3 ? "selected" : '' ?>>37</option>
+                                            <option value="4" <?php echo $val['size'] == 4 ? "selected" : '' ?>>38</option>
+                                            <option value="5" <?php echo $val['size'] == 5 ? "selected" : '' ?>>39</option>
+                                            <option value="6" <?php echo $val['size'] == 6 ? "selected" : '' ?>>40</option>
                                         </select>
                                     </td>
                                     <td>
@@ -162,8 +237,9 @@
                                 <div class="input-group">
                                     <textarea required="" class="form-control" name="comment" placeholder="Ghi chú" rows="2" cols="100"></textarea>
                                 </div>
-                                <div class="input-group">
+                                <div class="input-group" style="display: flex;justify-content: space-between">
                                     <input type="submit" name="" value="Xác nhận thông tin " class="form-control">
+                                    <button type="submit" name="pay"  value="online" class="form-control btn-primary">Xác nhận thanh toán</button>
                                 </div>
                             </form>
                         </div>

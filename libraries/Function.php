@@ -1,4 +1,5 @@
 <?php 
+    ob_start();
     /**
     * debug
     **/
@@ -83,7 +84,7 @@
 
     function base_url()
     {
-//        return $url  = "http://webbangiay.phupt.net/";
+       return $url  = "http://localhost:8000/";
          return 'http://'.$_SERVER["SERVER_NAME"].'/';
     }
 
@@ -98,14 +99,14 @@
 
     function modules($url)
     {
-        return base_url() . "admin/modules/" .$url ;
+        return base_url() . "admin/modules/" .$url ."/";
     }
     
      if ( ! function_exists('redirectStyle'))
     {
         function redirectStyle($url = "")
         {
-            header("location: ".base_url()."{$url}");exit();
+            header("location: ".base_url()."{$url}"."/");exit();
         }
     }
 
@@ -118,7 +119,7 @@
     {
         function redirectAdmin($url = "")
         {
-            header("location: ".base_url()."admin/modules/{$url}");exit();
+            header("location: ".base_url()."admin/modules/{$url}/");exit();
         }
     }
 
@@ -131,7 +132,7 @@
     {
         function redirect($url = "")
         {
-            header("location: ".base_url().$url);exit();
+            header("location: ".base_url().$url.'/');exit();
         }
     }
 

@@ -18,10 +18,12 @@
         $qtyupdate = $_POST['qtyupdate'];
     }
 
+    $size = $_POST['size'];
 
     if ( $key && $qtyupdate)
     {
         $_SESSION['cart'][$key]['qty'] = $qtyupdate;
+        $_SESSION['cart'][$key]['size'] = $size;
         $data = 1;
     }
     else
@@ -29,7 +31,4 @@
         $data = 0;
     }
     echo  $data;
-
-
-
  ?>

@@ -33,7 +33,7 @@
 			<div class="container">
 				<div class="col-md-3" id="ft-about">
 
-					<p>Đồ án tốt nghiệp của TrầnKimAnh</p>
+					<p>Web</p>
 				</div>
 				<div class="col-md-3 box-footer">
 					<h3 class="tittle-footer">Tin tức</h3>
@@ -78,7 +78,7 @@
 		</div>
 	</section>
 	<section id="ft-bottom">
-		<p class="text-center">Copyright © 2020 . Design by ... !!! </p>
+		<p class="text-center">Copyright © 2022 . Design by ... !!! </p>
 	</section>
 </div>
 </div>
@@ -95,7 +95,7 @@
 	 *  url  golbal
 	 */
 
-	$url = "http://webbangiay.loca/";
+	$url = "http://localhost:8000/";
 
 
 	$(function () {
@@ -119,12 +119,12 @@
 
 		$key = $(this).attr("data-key");
 		$qty = $(this).parents("tr").find("#qtyup").val();
-		console.log($qty);
 
+        $size = $(this).parents('tr').find(".selected-size option:selected" ).val();
 		$.ajax({
 			url: $url + "updatecart.php",
 			type: 'POST',
-			data: {'key': $key, 'qtyupdate': $qty},
+			data: {'key': $key, 'qtyupdate': $qty, 'size' : $size},
 			async: true,
 			success: function (data) {
 				if (data == 1) {

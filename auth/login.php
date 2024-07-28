@@ -118,7 +118,7 @@
                   
                 </div>
                 <div class="copyright">
-                    2017 © Đồ án tốt nghiệp 
+                    2022 © Đồ án tốt nghiệp
                 </div>
                 
                 <script src="<?php echo public_admin() ?>js//jquery.min.js" type="text/javascript"></script>
